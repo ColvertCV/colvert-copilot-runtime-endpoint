@@ -1,0 +1,33 @@
+{
+  "name": "colvert-copilot-runtime-endpoint",
+  "version": "1.0.0",
+  "description": "A basic CopilotKit runtime server",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node test-server.js"
+  },
+  "keywords": [
+    "copilotkit",
+    "runtime",
+    "server"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@ag-ui/client": "^0.0.36",
+    "@copilotkit/runtime": "^1.10.3-next.1",
+    "@langchain/core": "^0.3.72",
+    "@langchain/langgraph": "^0.4.6",
+    "@langchain/langgraph-sdk": "^0.0.109",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

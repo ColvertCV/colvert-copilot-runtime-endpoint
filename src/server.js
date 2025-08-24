@@ -73,7 +73,7 @@ const server = createServer((req, res) => {
   const runtime = new CopilotRuntime({
     agents: {
         // Our FastAPI endpoint URL
-        'sample_agent': new HttpAgent({url: "http://localhost:8000/your-agent-path"}),
+        'sample_agent': new HttpAgent({url: "https://agents.staging.colvert.ai/your-agent-path"}),
     },
   });
 

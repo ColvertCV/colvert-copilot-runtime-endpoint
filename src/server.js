@@ -16,13 +16,6 @@ const server = createServer((req, res) => {
         'sample_agent': new HttpAgent({url: "http://localhost:8000/your-agent-path"}),
     },
   });
-  /*
-  const runtime = new CopilotRuntime({
-    agents: {
-      'simple-agent': createSimpleAgent(),
-    },
-  });
-  */
 
   const handler = copilotRuntimeNodeHttpEndpoint({
     endpoint: '/copilotkit',

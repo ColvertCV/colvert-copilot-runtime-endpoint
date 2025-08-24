@@ -7,7 +7,23 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "node --watch src/server.js",
-    "test": "node test-server.js"
+    "test": "node test-server.js",
+    "build": "npm run build:clean && npm run build:prepare && npm run build:validate",
+    "build:clean": "echo 'Cleaning build artifacts...' && rm -rf dist/ build/ .nyc_output/ coverage/",
+    "build:prepare": "echo 'Preparing build...' && mkdir -p dist && cp -r src/* dist/ && cp package.json dist/ && cp README.md dist/ 2>/dev/null || true",
+    "build:validate": "echo 'Validating build...' && node -c dist/server.js && echo 'Build validation successful'",
+    "build:docker": "docker build -t colvert-copilot-runtime .",
+    "build:docker:run": "docker run -p 4000:4000 colvert-copilot-runtime",
+    "build:install-prod": "npm ci --only=production",
+    "build:install-all": "npm ci",
+    "build:check-deps": "npm audit && npm outdated",
+    "build:lint": "echo 'Linting JavaScript files...' && find src/ -name '*.js' -exec node -c {} \\;",
+    "build:test": "npm test",
+    "build:full": "npm run build:check-deps && npm run build:lint && npm run build:test && npm run build",
+    "build:script": "./scripts/build.sh",
+    "deploy:prepare": "npm run build:full && npm run build:install-prod",
+    "deploy:script": "./scripts/deploy.sh",
+    "deploy:docker": "npm run build:docker && npm run build:docker:run"
   },
   "keywords": [
     "copilotkit",

@@ -13,7 +13,7 @@
     "build:prepare": "echo 'Preparing build...' && mkdir -p dist && cp -r src/* dist/ && cp package.json dist/ && cp README.md dist/ 2>/dev/null || true",
     "build:validate": "echo 'Validating build...' && node -c dist/server.js && echo 'Build validation successful'",
     "build:docker": "docker build -t colvert-copilot-runtime .",
-    "build:docker:run": "docker run -p 4000:4000 colvert-copilot-runtime",
+    "build:docker:run": "docker run -p 4100:4100 colvert-copilot-runtime",
     "build:install-prod": "npm ci --only=production",
     "build:install-all": "npm ci",
     "build:check-deps": "npm audit && npm outdated",

@@ -26,6 +26,6 @@ const server = createServer((req, res) => {
   return handler(req, res);
 });
 
-server.listen(4000, () => {
-  console.log('Listening at http://localhost:4000/copilotkit');
+server.listen(4100, () => {
+  console.log('Listening at http://localhost:4100/copilotkit');
 });
